@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/layui/css/layui.css}">
+</head>
+<body>
+<form class="layui-form" id="updateForm" th:action="@{/customer}" th:object="${customer}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">真实姓名</label>
+        <div class="layui-input-block">
+            <input type="hidden" name="customerId" th:value="*{customerId}">
+            <input type="text" class="layui-input" name="realName" placeholder="请输入姓名"
+                autocomplete="off" lay-verify="required" maxlength="50" th:value="*{realName}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" th:checked="*{sex=='男'}">
+            <input type="radio" name="sex" value="女" th:checked="*{sex=='女'}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄</label>
+        <div class="layui-input-block">
+            <input type="text" name="age" placeholder="请输入年龄" autocomplete="off"
+                maxlength="3" lay-verify="number" class="layui-input" th:value="*{age}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱</label>
+        <div class="layui-input-block">
+            <input class="layui-input" type="text" placeholder="请输入邮箱" autocomplete="off"
+                name="email" lay-verify="email" maxlength="100" th:value="*{email}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号码</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="phone" placeholder="请输入手机号码" autocomplete="off"
+                lay-verify="phone" maxlength="11" th:value="*{phone}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-block">
+            <input class="layui-input" type="text" name="address" placeholder="请输入地址" autocomplete="off"
+                maxlength="100" th:value="*{address}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="updateSubmit">立即提交</button>
+            <button class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
